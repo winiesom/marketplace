@@ -4,13 +4,25 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
     margin: 0;
     padding: 0;
+  }
+
+* {
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
 
-.txt {
-    @apply border border-red-100;
+
+.btn-outlined-styles {
+    @apply bg-transparent border border-primary-black-100 rounded-full px-2 md:px-6 py-2 md:py-4;
+}
+
+.btn-outlined-title-styles {
+    @apply text-primary-black-100 font-medium text-sm md:text-base capitalize; 
+}
+
+.main-container {
+    @apply h-auto sm:px-16 px-16 py-10 overflow-hidden;
 }

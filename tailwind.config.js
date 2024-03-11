@@ -36,6 +36,12 @@ module.exports = {
           100: "#FADFE4"
         },
       },
+      fontWeight: {
+        'semi-bold-plus': '800',
+      },
+      borderRadius: {
+        'custom': '25px'
+      }
     },
   },
   plugins: [],

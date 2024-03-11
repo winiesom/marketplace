@@ -1,10 +1,14 @@
 import "./globals.css"
+
+import Hero from '@/components/hero/Hero';
+
 export default function Home() {
   return (
-    <main className="">
-      <div className="txt">
-        App
+    <main className="main-container">
+      <Hero />
+      <div className="">
+
       </div>
     </main>
   );
-}
+};
