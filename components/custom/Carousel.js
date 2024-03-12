@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
 import PropTypes from "prop-types";
 import Image from 'next/image';
 
+import { useAuth } from '@/contexts/AuthContext'; 
 import CustomButton from './CustomButton';
 
 const Carousel = ({ collections }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visitedIndicators, setVisitedIndicators] = useState([0]);
     const router = useRouter();
+    const { isConnected } = useAuth();
 
     
     const handleCollection = (item) => {
@@ -135,7 +137,8 @@ const Carousel = ({ collections }) => {
                                     title="Buy" 
                                     btnType="button" 
                                     btnStyles="btn-filled-styles" 
-                                    btnTitleStyle="btn-filled-title-styles" 
+                                    btnTitleStyle="btn-filled-title-styles"
+                                    disabled={!isConnected}
                                 />
                                 <CustomButton 
                                     title="See Collection" 
@@ -166,7 +169,7 @@ const Carousel = ({ collections }) => {
 };
 
 Carousel.propTypes = {
-    collections: PropTypes.node.isRequired
+    collections: PropTypes.node
 };
 
 export default Carousel;

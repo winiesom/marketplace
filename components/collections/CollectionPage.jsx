@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import CustomButton from '../custom/CustomButton';
-
+import { useAuth } from '@/contexts/AuthContext'; 
 
 const CollectionPage = ({selectedCollection}) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
-    console.log(selectedCollection, 'selectyty')
+    const { isConnected } = useAuth();
 
   return (
     <div className='mx-20 mb-20'>
@@ -84,6 +84,7 @@ const CollectionPage = ({selectedCollection}) => {
                     btnType="button"
                     btnStyles="btn-filled-white-styles"
                     btnTitleStyle="btn-filled-white-title-styles"
+                    disabled={!isConnected}
                   />
                 </div>
               </div>

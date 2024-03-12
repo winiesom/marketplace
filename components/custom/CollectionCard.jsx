@@ -3,10 +3,17 @@
 import Image from 'next/image';
 import CustomButton from './CustomButton';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const CollectionCard = ({ collection }) => {
   const { artist, artistImg, collection: images } = collection;
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const router = useRouter();
+
+  const handleGoToCollection = (item) => {
+    router.push(`/collections?id=${item}`);
+  }
+
 
   return (
     <div>
@@ -33,6 +40,7 @@ const CollectionCard = ({ collection }) => {
                     btnType="button"
                     btnStyles="btn-filled-white-styles"
                     btnTitleStyle="btn-filled-white-title-styles"
+                    handleClick={() => handleGoToCollection(collection.id)}
                   />
                 </div>
               </div>

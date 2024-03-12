@@ -2,10 +2,10 @@
 
 import PropTypes from "prop-types";
 
-const CustomButton = ({title, handleClick, btnType, btnStyles, btnTitleStyle}) => {
+const CustomButton = ({title, handleClick, disabled, btnType, btnStyles, btnTitleStyle}) => {
   return (
     <button
-    disabled={false}
+    disabled={disabled}
     onClick={handleClick}
     type={btnType}
     className={btnStyles}
@@ -18,6 +18,7 @@ const CustomButton = ({title, handleClick, btnType, btnStyles, btnTitleStyle}) =
 CustomButton.propTypes = {
     title: PropTypes.node.isRequired,
     handleClick: PropTypes.func,
+    disabled: PropTypes.node,
     btnType: PropTypes.string,
     btnStyles: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     btnTitleStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
