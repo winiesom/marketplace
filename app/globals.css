@@ -7,6 +7,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #FAFAFA;
   }
 
 * {
@@ -14,6 +15,12 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+.main-container {
+    @apply h-auto sm:px-24 px-16 py-10 overflow-hidden;
+}
+
+
+/* BUTTON STYLES START */
 
 .btn-outlined-styles {
     @apply bg-transparent border border-primary-black-100 rounded-full px-2 md:px-6 py-2 md:py-4;
@@ -29,6 +36,14 @@ body {
 
 .btn-light-red-title-styles {
     @apply text-primary-black-100 font-normal text-xs md:text-sm capitalize; 
+}
+
+.btn-light-green-styles {
+    @apply bg-light-green-100 rounded-full px-6 md:px-8 py-1;
+}
+
+.btn-light-green-title-styles {
+    @apply text-primary-black-100 font-normal text-xs capitalize; 
 }
 
 .btn-outlined-styles-sm {
@@ -47,10 +62,28 @@ body {
     @apply text-light-white-100 font-medium text-xs md:text-sm capitalize; 
 }
 
-.main-container {
-    @apply h-auto sm:px-16 px-16 py-10 overflow-hidden;
+.btn-filled-white-styles {
+    @apply bg-light-white-100 rounded-full px-2 md:px-6 py-1 md:py-2 w-full;
 }
-/* 
-.carousel-container {
-    @apply h-custom-ht-200 bg-light-grey-200 rounded-custom py-12 px-12 overflow-hidden relative;
-} */
+
+.btn-filled-white-title-styles {
+    @apply text-primary-black-100 font-normal md:font-medium text-small md:text-xs; 
+}
+
+/* BUTTON STYLES END */
+
+
+
+
+/* COLLECTIONS STYLES START */
+
+.collections-container {
+    @apply  my-20 relative;
+}
+
+.collections-title {
+    @apply text-primary-black-900 font-bold md:text-base capitalize; 
+}
+
+
+/* COLLECTIONS STYLES END */

@@ -40,14 +40,22 @@ module.exports = {
         'semi-bold-plus': '800',
       },
       borderRadius: {
-        'custom': '25px'
+        'custom': '25px',
+        "custom-two": "30px"
       },
       height: {
         "custom": "530px",
         "custom-two": "300px"
       },
       width: {
-        "custom": "350px"
+        "custom": "350px",
+        "custom-two": "345px",
+        "custom-three": "250px",
+        "custom-xs": "150px",
+      },
+      fontSize: {
+        "small": "10px",
+        "semi-small": "11px",
       }
     },
   },

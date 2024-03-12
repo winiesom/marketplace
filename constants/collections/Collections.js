@@ -18,6 +18,10 @@ export const collections = [
         collection: [
             {
                 id: 101,
+                price: "0.12BTC - 0.18BTC",
+                desc: "Lorem ipsum dolor sit amet, consectetur adicing elit, sed do eiusmod tempor...",
+                collectionTitle: "Night sky",
+                img: nightiscoming,
                 images: [
                     {
                         id:1,
@@ -73,6 +77,10 @@ export const collections = [
         collection: [
             {
                 id: 100,
+                price: "0.12BTC - 0.18BTC",
+                desc: "Lorem ipsum dolor sit amet, consectetur adicing elit, sed do eiusmod tempor...",
+                collectionTitle: "Future",
+                img: future,
                 images: [
                     {
                         id: 10,
@@ -128,6 +136,10 @@ export const collections = [
         collection: [
             {
                 id: 1001,
+                price: "0.12BTC - 0.18BTC",
+                desc: "Lorem ipsum dolor sit amet, consectetur adicing elit, sed do eiusmod tempor...",
+                collectionTitle: "Mother nature",
+                img: mothernature,
                 images: [
                     {
                         id: 100,
@@ -175,5 +187,63 @@ export const collections = [
             }
         ],
     },
+    // {
+    //     id: 3004,
+    //     artist: "Maria",
+    //     artistImg: lea,
+    //     collection: [
+    //         {
+    //             id: 1004,
+    //             price: "0.12BTC - 0.18BTC",
+    //             desc: "Lorem ipsum",
+    //             collectionTitle: "Mother nature",
+    //             img: mothernature,
+    //             images: [
+    //                 {
+    //                     id: 104,
+    //                     imgTitle: "Mother nature",
+    //                     trending: false,
+    //                     collectionTitle: "Mother nature",
+    //                     img: mothernature
+    //                 },
+    //                 {
+    //                     id: 204,
+    //                     imgTitle: "With the stars",
+    //                     trending: false,
+    //                     collectionTitle: "Mother nature",
+    //                     img: withthestars
+    //                 },
+    //                 {
+    //                     id: 304,
+    //                     imgTitle: "Summer",
+    //                     trending: true,
+    //                     collectionTitle: "Mother nature",
+    //                     img: summer
+    //                 },
+    //                 {
+    //                     id: 404,
+    //                     imgTitle: "Quiet",
+    //                     trending: false,
+    //                     collectionTitle: "Mother nature",
+    //                     img: quiet
+    //                 },
+    //                 {
+    //                     id: 504,
+    //                     imgTitle: "Travel",
+    //                     trending: false,
+    //                     collectionTitle: "Mother nature",
+    //                     img: travel
+    //                 },
+    //                 {
+    //                     id: 604,
+    //                     imgTitle: "The rain",
+    //                     trending: true,
+    //                     collectionTitle: "Mother nature",
+    //                     img: therain
+    //                 },
+    //             ],
+    //         }
+    //     ],
+    // },
 
 ]

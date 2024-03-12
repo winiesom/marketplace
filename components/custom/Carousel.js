@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import Link from "next/link";
+import PropTypes from "prop-types";
 import Image from 'next/image';
 
 import CustomButton from './CustomButton';
@@ -62,7 +62,7 @@ const Carousel = ({ collections }) => {
 
     const currentItem = trendingItems[currentIndex];
     const currentCollection = collections.find(collection =>
-        collection.collection.some(item => item.images.some(image => image.id === currentItem.id))
+        collection?.collection.some(item => item.images.some(image => image.id === currentItem.id))
     );
 
 
@@ -142,6 +142,10 @@ const Carousel = ({ collections }) => {
             </div>
         </div>
     );
+};
+
+Carousel.propTypes = {
+    collections: PropTypes.node.isRequired
 };
 
 export default Carousel;
