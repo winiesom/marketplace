@@ -41,6 +41,13 @@ module.exports = {
       },
       borderRadius: {
         'custom': '25px'
+      },
+      height: {
+        "custom": "530px",
+        "custom-two": "300px"
+      },
+      width: {
+        "custom": "350px"
       }
     },
   },

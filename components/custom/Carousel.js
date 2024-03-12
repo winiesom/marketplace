@@ -2,19 +2,30 @@
 
 import { useEffect, useState } from 'react';
 
-const Carousel = ({ items }) => {
+import Link from "next/link";
+import Image from 'next/image';
+
+import CustomButton from './CustomButton';
+
+const Carousel = ({ collections }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visitedIndicators, setVisitedIndicators] = useState([0]);
-    const indicatorWidth = `calc(100% / ${items.length})`;
+
+    // count the number of trending items
+    const trendingItems = collections.flatMap(collection =>
+        collection.collection.flatMap(item => item.images.filter(image => image.trending))
+    );
+
+    const indicatorWidth = `calc(100% / ${trendingItems.length})`;
 
     // Function to move to the next slide
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === items.length - 1 ? 0 : prevIndex + 1));
+        setCurrentIndex((prevIndex) => (prevIndex === trendingItems.length - 1 ? 0 : prevIndex + 1));
     };
 
     useEffect(() => {
         // Automatically move to the next slide after 4 seconds
-        const interval = setInterval(nextSlide, 4000);
+        const interval = setInterval(nextSlide, 1000);
         return () => clearInterval(interval);
     }, [currentIndex]);
 
@@ -39,23 +50,29 @@ const Carousel = ({ items }) => {
 
     useEffect(() => {
         // Reset visitedIndicators when currentIndex reaches the last item
-        if (currentIndex === items.length - 1) {
+        if (currentIndex === trendingItems.length - 1) {
             // Wait for 4 seconds before resetting visitedIndicators
             const timeout = setTimeout(() => {
                 setVisitedIndicators([0]);
-            }, 4000);
+            }, 1000);
 
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, items.length]);
+    }, [currentIndex, trendingItems.length]);
+
+    const currentItem = trendingItems[currentIndex];
+    const currentCollection = collections.find(collection =>
+        collection.collection.some(item => item.images.some(image => image.id === currentItem.id))
+    );
+
 
     return (
         <div className="relative">
             {/* Carousel indicators */}
             <div className="mb-2 mx-3 flex justify-center z-10">
-                {items.map((_, index) => (
+                {trendingItems.map((item, index) => (
                     <div
-                        key={index}
+                        key={item.id}
                         className={`h-3 mx-1 rounded-full ${
                             visitedIndicators.includes(index) ? 'bg-black' : 'bg-light-grey-200'
                         } transition-colors duration-1000`}
@@ -64,24 +81,64 @@ const Carousel = ({ items }) => {
                 ))}
             </div>
 
+
             {/* Carousel content */}
-            <div className="h-72 bg-light-grey-200 rounded-custom py-8 px-12 overflow-hidden relative">
-                {items.map((item, index) => (
-                    <div
-                        key={item.id}
-                        className={`absolute w-full h-full top-0 left-full transition-opacity duration-1000 ${
-                            index === currentIndex ? 'opacity-100' : 'opacity-0'
-                        }`}
-                        style={{
-                            left: `${index * 100}%`,
-                            transform: `translateX(-${currentIndex * 100}%)`,
-                        }}
-                    >
-                        <div className="bg-light-grey-200 mx-4 flex items-center justify-center h-full">
-                            <p className="text-2xl">{item.content}</p>
+            <div className="h-custom sm:h-96 bg-light-grey-200 rounded-custom overflow-hidden relative">
+                <div
+                    className="absolute w-full h-full top-0 left-full transition-opacity duration-1000"
+                    style={{
+                        left: `${currentIndex * 100}%`,
+                        transform: `translateX(-${currentIndex * 100}%)`,
+                    }}
+                >
+                    <div className="bg-light-grey-200 h-auto flex flex-col sm:flex-row items-center mx-3 my-3 md:mx-10 px-2 py-4 md:py-10 justify-between">
+                     
+                        <div className='w-full'>
+                            <CustomButton
+                                title="trending now"
+                                btnType="button"
+                                btnStyles="btn-light-red-styles"
+                                btnTitleStyle="btn-light-red-title-styles"
+                            />
+                            <p className="mt-4 md:mt-8 text-light-grey-100 font-light mb-1 text-sm">{`${currentItem.collectionTitle} collection`}</p>
+                            <p className="font-extrabold text-sm md:text-4xl">{currentItem.imgTitle}</p>
+
+                            <div className="flex flex-col sm:flex-row md:items-center justify-start mt-4">
+                                <div>
+                                    <Image 
+                                        src={currentCollection.artistImg} 
+                                        alt={currentCollection.artist} 
+                                        width={60} 
+                                        height={60} 
+                                    />
+                                </div>
+
+                                <div className="mx-3">
+                                    <p className="text-light-grey-100 text-xs font-light">Artist</p>
+                                    <p className="text-primary-black-100 text-sm font-normal">{currentCollection.artist}</p>
+                                </div>
+
+                            </div>
+                            
+                            <div className="flex flex-col sm:flex-row md:items-center justify-start gap-3 mt-4 md:mt-10">
+                                <CustomButton title="Buy" btnType="button" btnStyles="btn-filled-styles" btnTitleStyle="btn-filled-title-styles" />
+                                <CustomButton title="See Collection" btnType="button" btnStyles="btn-outlined-styles-sm" btnTitleStyle="btn-outlined-title-styles-sm" />
+                            </div>
                         </div>
-                    </div>
-                ))}
+
+                        <div className="mt-10 md:mt-0 py-5 pt-0 w-full flex md:justify-end">
+                            <Image 
+                                src={currentItem.img} 
+                                alt={currentItem.imgTitle} 
+                                layout="fixed"
+                                className="object-cover w-24 h-24 md:w-custom md:h-custom-two rounded-full md:rounded-custom"
+                                width={530} 
+                                height={320} 
+                            />
+                        </div>
+
+                        </div>
+                </div>
             </div>
         </div>
     );

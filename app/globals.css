@@ -23,6 +23,34 @@ body {
     @apply text-primary-black-100 font-medium text-sm md:text-base capitalize; 
 }
 
+.btn-light-red-styles {
+    @apply bg-light-red-100 rounded-full px-3 md:px-4 py-1 md:py-2;
+}
+
+.btn-light-red-title-styles {
+    @apply text-primary-black-100 font-normal text-xs md:text-sm capitalize; 
+}
+
+.btn-outlined-styles-sm {
+    @apply bg-transparent border border-primary-black-100 rounded-full px-2 md:px-5 py-2 md:py-2 w-full;
+}
+
+.btn-outlined-title-styles-sm {
+    @apply text-primary-black-100 font-medium text-xs md:text-sm capitalize; 
+}
+
+.btn-filled-styles {
+    @apply bg-primary-black-100 border border-primary-black-100 rounded-full px-2 md:px-6 py-2 md:py-2 w-full;
+}
+
+.btn-filled-title-styles {
+    @apply text-light-white-100 font-medium text-xs md:text-sm capitalize; 
+}
+
 .main-container {
     @apply h-auto sm:px-16 px-16 py-10 overflow-hidden;
 }
+/* 
+.carousel-container {
+    @apply h-custom-ht-200 bg-light-grey-200 rounded-custom py-12 px-12 overflow-hidden relative;
+} */
