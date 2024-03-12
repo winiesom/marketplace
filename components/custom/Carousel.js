@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import PropTypes from "prop-types";
@@ -10,6 +11,13 @@ import CustomButton from './CustomButton';
 const Carousel = ({ collections }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visitedIndicators, setVisitedIndicators] = useState([0]);
+    const router = useRouter();
+
+    
+    const handleCollection = (item) => {
+        router.push(`/collections?id=${item}`);
+    }
+
 
     // count the number of trending items
     const trendingItems = collections.flatMap(collection =>
@@ -25,7 +33,7 @@ const Carousel = ({ collections }) => {
 
     useEffect(() => {
         // Automatically move to the next slide after 4 seconds
-        const interval = setInterval(nextSlide, 1000);
+        const interval = setInterval(nextSlide, 4000);
         return () => clearInterval(interval);
     }, [currentIndex]);
 
@@ -54,7 +62,7 @@ const Carousel = ({ collections }) => {
             // Wait for 4 seconds before resetting visitedIndicators
             const timeout = setTimeout(() => {
                 setVisitedIndicators([0]);
-            }, 1000);
+            }, 4000);
 
             return () => clearTimeout(timeout);
         }
@@ -64,6 +72,8 @@ const Carousel = ({ collections }) => {
     const currentCollection = collections.find(collection =>
         collection?.collection.some(item => item.images.some(image => image.id === currentItem.id))
     );
+
+
 
 
     return (
@@ -121,8 +131,19 @@ const Carousel = ({ collections }) => {
                             </div>
                             
                             <div className="flex flex-col sm:flex-row md:items-center justify-start gap-3 mt-4 md:mt-10">
-                                <CustomButton title="Buy" btnType="button" btnStyles="btn-filled-styles" btnTitleStyle="btn-filled-title-styles" />
-                                <CustomButton title="See Collection" btnType="button" btnStyles="btn-outlined-styles-sm" btnTitleStyle="btn-outlined-title-styles-sm" />
+                                <CustomButton 
+                                    title="Buy" 
+                                    btnType="button" 
+                                    btnStyles="btn-filled-styles" 
+                                    btnTitleStyle="btn-filled-title-styles" 
+                                />
+                                <CustomButton 
+                                    title="See Collection" 
+                                    btnType="button" 
+                                    btnStyles="btn-outlined-styles-sm" 
+                                    btnTitleStyle="btn-outlined-title-styles-sm"
+                                    handleClick={() => handleCollection(currentCollection.id)}
+                                />
                             </div>
                         </div>
 

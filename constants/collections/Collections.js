@@ -28,42 +28,48 @@ export const collections = [
                         imgTitle: "Night is coming",
                         trending: true,
                         collectionTitle: "Night sky",
-                        img: nightiscoming
+                        img: nightiscoming,
+                        price: "0.12 BTC"
                     },
                     {
                         id:2,
                         imgTitle: "With the stars",
                         trending: true,
                         collectionTitle: "Night sky",
-                        img: withthestars
+                        img: withthestars,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 3,
                         imgTitle: "Summer",
                         trending: false,
                         collectionTitle: "Night sky",
-                        img: summer
+                        img: summer,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 4,
                         imgTitle: "Quiet",
                         trending: false,
                         collectionTitle: "Night sky",
-                        img: quiet
+                        img: quiet,
+                        price: "0.14 BTC"
                     },
                     {
                         id: 5,
                         imgTitle: "Travel",
                         trending: false,
                         collectionTitle: "Night sky",
-                        img: travel
+                        img: travel,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 6,
                         imgTitle: "The rain",
                         trending: false,
                         collectionTitle: "Night sky",
-                        img: therain
+                        img: therain,
+                        price: "0.18 BTC"
                     },
                 ],
             }
@@ -87,42 +93,48 @@ export const collections = [
                         imgTitle: "Future",
                         trending: false,
                         collectionTitle: "Future",
-                        img: future
+                        img: future,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 20,
                         imgTitle: "With the stars",
                         trending: false,
                         collectionTitle: "Future",
-                        img: withthestars
+                        img: withthestars,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 30,
                         imgTitle: "Summer",
                         trending: false,
                         collectionTitle: "Future",
-                        img: summer
+                        img: summer,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 40,
                         imgTitle: "Quiet",
                         trending: true,
                         collectionTitle: "Future",
-                        img: quiet
+                        img: quiet,
+                        price: "0.14 BTC"
                     },
                     {
                         id: 50,
                         imgTitle: "Travel",
                         trending: true,
                         collectionTitle: "Future",
-                        img: travel
+                        img: travel,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 60,
                         imgTitle: "The rain",
                         trending: false,
                         collectionTitle: "Future",
-                        img: therain
+                        img: therain,
+                        price: "0.18 BTC"
                     },
                 ],
             }
@@ -146,42 +158,48 @@ export const collections = [
                         imgTitle: "Mother nature",
                         trending: false,
                         collectionTitle: "Mother nature",
-                        img: mothernature
+                        img: mothernature,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 200,
                         imgTitle: "With the stars",
                         trending: false,
                         collectionTitle: "Mother nature",
-                        img: withthestars
+                        img: withthestars,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 300,
                         imgTitle: "Summer",
                         trending: true,
                         collectionTitle: "Mother nature",
-                        img: summer
+                        img: summer,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 400,
                         imgTitle: "Quiet",
                         trending: false,
                         collectionTitle: "Mother nature",
-                        img: quiet
+                        img: quiet,
+                        price: "0.14 BTC"
                     },
                     {
                         id: 500,
                         imgTitle: "Travel",
                         trending: false,
                         collectionTitle: "Mother nature",
-                        img: travel
+                        img: travel,
+                        price: "0.12 BTC"
                     },
                     {
                         id: 600,
                         imgTitle: "The rain",
                         trending: true,
                         collectionTitle: "Mother nature",
-                        img: therain
+                        img: therain,
+                        price: "0.18 BTC"
                     },
                 ],
             }

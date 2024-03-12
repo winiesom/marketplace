@@ -45,6 +45,13 @@ body {
 .btn-light-green-title-styles {
     @apply text-primary-black-100 font-normal text-xs capitalize; 
 }
+.btn-light-grey-styles {
+    @apply bg-light-grey-300 rounded-full px-7 pb-1;
+}
+
+.btn-light-grey-title-styles {
+    @apply text-primary-black-100 font-normal text-small capitalize; 
+}
 
 .btn-outlined-styles-sm {
     @apply bg-transparent border border-primary-black-100 rounded-full px-2 md:px-5 py-2 md:py-2 w-full;

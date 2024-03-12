@@ -3,7 +3,8 @@ import "./globals.css"
 import Hero from '@/components/hero/Hero';
 import Collections from '@/components/collections/Collections';
 
-export default function Home() {
+export default function Home({data}) {
+  console.log(data)
   return (
     <main className="main-container">
       <Hero />
