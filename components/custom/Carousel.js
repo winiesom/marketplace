@@ -84,7 +84,6 @@ const Carousel = ({ collections }) => {
     const currentCollection = collections.find(collection =>
         collection?.collection.some(item => item.images.some(image => image.id === currentItem.id))
     );
-    console.log(currentCollection, 'hhahah')
 
     return (
         <div className="relative">
