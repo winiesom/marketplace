@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import CustomButton from './CustomButton';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -24,14 +24,16 @@ const CollectionCard = ({ collection }) => {
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <div className='h-44 relative overflow-hidden'>
+          <div className='h-44 relative overflow-hidden' style={{ width: '100%', height: '176px' }}>
             <Image 
                 src={image.img} 
                 alt={image.collectionTitle} 
-                width="100%" 
-                height="100%" 
-                className="h-full w-full rounded-custom-two" 
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                style={{ borderRadius: 30 }}
             />
+           
             {hoveredIndex === index && (
               <div className="absolute inset-0 bg-black rounded-custom-two bg-opacity-50 flex items-center justify-center">
                 <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>

@@ -77,12 +77,12 @@ export const collections = [
     },
 
     {
-        id: 200,
+        id: 900,
         artist: "Julien",
         artistImg: julien,
         collection: [
             {
-                id: 100,
+                id: 800,
                 price: "0.12BTC - 0.18BTC",
                 desc: "Lorem ipsum dolor sit amet, consectetur adicing elit, sed do eiusmod tempor...",
                 collectionTitle: "Future",

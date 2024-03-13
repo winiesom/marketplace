@@ -15,6 +15,7 @@ module.exports = {
         "primary-black": {
           DEFAULT: "#23252B",
           100: "#23252B",
+          200: "#02071D",
           900: "#000000"
         },
         "light-grey": {
@@ -22,6 +23,7 @@ module.exports = {
           100: "#617587",
           200: "#E6E9F2",
           300: "#D4D3EB",
+          400: "#7B7B7B",
         },
         "light-white": {
           DEFAULT: "#FFFFFF",
@@ -35,6 +37,10 @@ module.exports = {
           DEFAULT: "#FADFE4",
           100: "#FADFE4"
         },
+        "primary-blue": {
+          DEFAULT: "#29627F",
+          100: "#29627F"
+        },
       },
       fontWeight: {
         'semi-bold-plus': '800',
@@ -45,15 +51,22 @@ module.exports = {
       },
       height: {
         "custom": "530px",
-        "custom-two": "300px"
+        "custom-sm": "750px",
+        "custom-one": "430px",
+        "custom-two": "300px",
+        "custom-full": "100%",
+        "custom-four": "600px"
       },
       width: {
         "custom": "350px",
         "custom-two": "345px",
         "custom-three": "250px",
         "custom-xs": "150px",
+        "custom-full": "100%",
+        "custom-four": "300px"
       },
       fontSize: {
+        "xsmall": "9px",
         "small": "10px",
         "semi-small": "11px",
       }

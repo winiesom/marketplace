@@ -1,13 +1,21 @@
 "use client";
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import CustomButton from '../custom/CustomButton';
 import { useAuth } from '@/contexts/AuthContext'; 
+import BuyNft from '../buy/BuyNft';
 
 const CollectionPage = ({selectedCollection}) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const { isConnected } = useAuth();
+    const [isOpen, setIsOpen] = useState(false); 
+    const [selectedItemId, setSelectedItemId] = useState(null);
+
+    const handleBuyNft = (itemId) => {
+      setSelectedItemId(itemId); 
+      setIsOpen(true); 
+  };
 
   return (
     <div className='mx-20 mb-20'>
@@ -51,7 +59,7 @@ const CollectionPage = ({selectedCollection}) => {
                 alt={selectedCollection.collection[0].imgTitle} 
                 layout="fixed"
                 className="object-cover w-24 h-24 md:w-custom md:h-custom-two rounded-full md:rounded-custom"
-                width={530} 
+                width={400} 
                 height={320} 
             />
         </div>
@@ -68,14 +76,15 @@ const CollectionPage = ({selectedCollection}) => {
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <div className='h-72 relative overflow-hidden'>
-            <Image 
-                src={image.img} 
-                alt={image.collectionTitle} 
-                width="100%" 
-                height="100%" 
-                className="h-full w-full rounded-custom-two" 
-            />
+          <div className='h-72 relative overflow-hidden'  style={{ width: '100%', height: '288px' }}>
+          <Image 
+            src={image.img} 
+            alt={image.collectionTitle} 
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            style={{ borderRadius: 30 }}
+          />
             {hoveredIndex === index && (
               <div className="absolute inset-0 bg-black rounded-custom-two bg-opacity-50 flex items-center justify-center">
                 <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
@@ -85,6 +94,7 @@ const CollectionPage = ({selectedCollection}) => {
                     btnStyles="btn-filled-white-styles"
                     btnTitleStyle="btn-filled-white-title-styles"
                     disabled={!isConnected}
+                    handleClick={() => handleBuyNft(image.id)}
                   />
                 </div>
               </div>
@@ -105,7 +115,10 @@ const CollectionPage = ({selectedCollection}) => {
         </div>
       )) : []}
     </div>
-
+ 
+    {isOpen && (
+      <BuyNft setIsOpen={setIsOpen} collectionId={selectedItemId} />
+    )}
     </div>
   )
 }

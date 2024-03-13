@@ -3,11 +3,12 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import { useAuth } from '@/contexts/AuthContext'; 
 import CustomButton from './CustomButton';
-import BuyNft from '../buy/buyNft';
+import BuyNft from '../buy/BuyNft';
+// import BuyNft from '../buy/buyNft';
 
 const Carousel = ({ collections }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,16 +84,16 @@ const Carousel = ({ collections }) => {
     const currentCollection = collections.find(collection =>
         collection?.collection.some(item => item.images.some(image => image.id === currentItem.id))
     );
-
-
-
+    console.log(currentCollection, 'hhahah')
 
     return (
         <div className="relative">
-            {/* buy nft modal start */}
-           
-            <BuyNft isOpen={isOpen} setIsOpen={setIsOpen} itemId={collectionId} />
-
+           {/* buy nft modal start */}
+           <div >
+                {isOpen && (
+                    <BuyNft setIsOpen={setIsOpen} collectionId={collectionId} />
+                )}
+            </div>
             {/* buy nft modal end */}
 
             {/* Carousel indicators */}
@@ -110,7 +111,7 @@ const Carousel = ({ collections }) => {
 
 
             {/* Carousel content */}
-            <div className="h-custom sm:h-96 bg-light-grey-200 rounded-custom overflow-hidden relative">
+            <div className="h-custom-sm md:h-custom-one bg-light-grey-200 rounded-custom overflow-hidden relative">
                 <div
                     className="absolute w-full h-full top-0 left-full transition-opacity duration-1000"
                     style={{
@@ -118,7 +119,7 @@ const Carousel = ({ collections }) => {
                         transform: `translateX(-${currentIndex * 100}%)`,
                     }}
                 >
-                    <div className="bg-light-grey-200 h-auto flex flex-col sm:flex-row items-center mx-3 my-3 md:mx-10 px-2 py-4 md:py-10 justify-between">
+                    <div className="bg-light-grey-200 h-auto mb-8 flex flex-col sm:flex-row items-center mx-3 my-3 md:mx-10 px-2 py-4 md:py-10 justify-between">
                      
                         <div className='w-full'>
                             <CustomButton
@@ -154,7 +155,7 @@ const Carousel = ({ collections }) => {
                                     btnStyles="btn-filled-styles" 
                                     btnTitleStyle="btn-filled-title-styles"
                                     disabled={!isConnected}
-                                    handleClick={() => handleBuyNft(currentCollection.id)}
+                                    handleClick={() => handleBuyNft(currentItem.id)}
                                 />
                                 <CustomButton 
                                     title="See Collection" 
@@ -172,7 +173,7 @@ const Carousel = ({ collections }) => {
                                 alt={currentItem.imgTitle} 
                                 layout="fixed"
                                 className="object-cover w-24 h-24 md:w-custom md:h-custom-two rounded-full md:rounded-custom"
-                                width={530} 
+                                width={400} 
                                 height={320} 
                             />
                         </div>
