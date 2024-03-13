@@ -18,7 +18,7 @@ const CustomButton = ({title, handleClick, disabled, btnType, btnStyles, btnTitl
 CustomButton.propTypes = {
     title: PropTypes.node.isRequired,
     handleClick: PropTypes.func,
-    disabled: PropTypes.node,
+    disabled: PropTypes.bool,
     btnType: PropTypes.string,
     btnStyles: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     btnTitleStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object])

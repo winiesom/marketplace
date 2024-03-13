@@ -3,22 +3,31 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import PropTypes from "prop-types";
 import Image from 'next/image';
 
 import { useAuth } from '@/contexts/AuthContext'; 
 import CustomButton from './CustomButton';
+import BuyNft from '../buy/buyNft';
 
 const Carousel = ({ collections }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visitedIndicators, setVisitedIndicators] = useState([0]);
     const router = useRouter();
     const { isConnected } = useAuth();
+    const [message, setMessage] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+    const [collectionId, setCollectionId] = useState(null);
 
     
     const handleCollection = (item) => {
         router.push(`/collections?id=${item}`);
     }
+
+    const handleBuyNft = (item) => {
+        setIsOpen(true);
+        setCollectionId(item);
+    };
+    
 
 
     // count the number of trending items
@@ -80,6 +89,12 @@ const Carousel = ({ collections }) => {
 
     return (
         <div className="relative">
+            {/* buy nft modal start */}
+           
+            <BuyNft isOpen={isOpen} setIsOpen={setIsOpen} itemId={collectionId} />
+
+            {/* buy nft modal end */}
+
             {/* Carousel indicators */}
             <div className="mb-2 mx-3 flex justify-center z-10">
                 {trendingItems.map((item, index) => (
@@ -139,6 +154,7 @@ const Carousel = ({ collections }) => {
                                     btnStyles="btn-filled-styles" 
                                     btnTitleStyle="btn-filled-title-styles"
                                     disabled={!isConnected}
+                                    handleClick={() => handleBuyNft(currentCollection.id)}
                                 />
                                 <CustomButton 
                                     title="See Collection" 
@@ -168,8 +184,5 @@ const Carousel = ({ collections }) => {
     );
 };
 
-Carousel.propTypes = {
-    collections: PropTypes.node
-};
 
 export default Carousel;
